@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-
 describe 'User visits root path and fills in search form' do
   describe 'can see list of 10 closest stations within 6 miles' do
-    describe 'can see some attributes of each station' do
+    it 'can see some attributes of each station' do
       visit root_path
       # When I visit "/"
       # And I fill in the search form with 80203 (Note: Use the existing search form)
@@ -25,4 +24,4 @@ describe 'User visits root path and fills in search form' do
       end
     end
   end
-end 
+end
