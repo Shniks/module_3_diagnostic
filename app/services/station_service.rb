@@ -4,7 +4,6 @@ class StationService
   end
 
   def stations
-    binding.pry
     raw_stations.map { |raw_station| Station.new(raw_station) }
   end
 
@@ -23,6 +22,6 @@ class StationService
   end
 
   def raw_stations
-    JSON.parse(response.body, symbolize_names: true)[:results]
+    JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
   end
 end
