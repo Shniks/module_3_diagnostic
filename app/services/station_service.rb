@@ -9,12 +9,16 @@ class StationService
   end
 
   def conn
-    conn = Faraday.new(url: "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.format?zip=#{@zipcode}&limit=10&radius=6.0&fuel_type=ELEC,LPG")
+    conn = Faraday.new(url: "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json")
   end
 
   def response
     response ||= conn.get do |request|
       request.headers['X-API-KEY'] = ENV['API_KEY']
+      request.params[:location] = @zipcode
+      request.params[:radius] = 10
+      request.params[:fuel_type] = "ELEC,LPG"
+      request.params[:limit] = 10
     end
   end
 
