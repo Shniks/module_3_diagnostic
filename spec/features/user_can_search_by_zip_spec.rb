@@ -12,7 +12,7 @@ describe 'User visits root path and fills in search form' do
       # Then I should be on page "/search"
       expect(current_path).to eq(search_path)
       # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
-      expect(page).to have_css('.station', count: 10)
+      expect(page).to have_css('.station', count: 2)
       # And the stations should be limited to Electric and Propane
       # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
       within(first('.station')) do
